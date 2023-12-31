@@ -155,8 +155,6 @@ void clist::create(int n) {
             last->link=nn;
             last=nn;
         }
-         
-        
     }
 
       if (last!= NULL) 
@@ -164,7 +162,6 @@ void clist::create(int n) {
           last->link=head;
 
       }
- 
 }
 
 // b) Display a polynomial
@@ -301,7 +298,6 @@ clist clist::addtopoly(clist ob2)
                 }
 
                 t1 = t1->link;
-            
         }
         
         while
@@ -598,7 +594,7 @@ unsigned long long factorial1(int n) {
     if (n <= 1) {
         return 1;
     } else {
-        return n * factorial(n - 1);
+        return n * factorial1(n - 1);
     }
 }
 
@@ -669,14 +665,24 @@ std::vector<double> resultantSubtraction(const std::vector<double>& vec1, const 
 int main() {
     double operand1, operand2;
     int operation,opr;
-
-    cout << "Enter operation : 1 Arithmetic   2 Trigonometric     3 Factorial   4 logarithm     5 Power     6 Polynomial    7 Radians & Degree Conversion    8 Number System Conversion     9 Complex numbers   10 Matrix   11 LCM & GCD    12 Permutation & Combination    13 Vector"<< endl;
-    cout << "";
+do{
+    cout << "Enter operation:\n";
+    cout << "  1. Arithmetic                    2. Trigonometric\n";
+    cout << "  3. Factorial                    4. Logarithm\n";
+    cout << "  5. Power                         6. Polynomial\n";
+    cout << "  7. Radians & Degree Conversion  8. Number System Conversion\n";
+    cout << "  9. Complex numbers              10. Matrix\n";
+    cout << "  11. LCM & GCD                   12. Permutation & Combination\n";
+    cout << "  13. Vector                      14. Exit\n";
     cin >> operation;
+
 
     switch (operation) {
         case 1:{
-            cout << "Enter operation : + Addition   - Subtraction   * Multiplication    / Quotient  % Remainder" << endl;
+            cout << "Enter operation:\n";
+            cout << "  1. Addition        2. Subtraction\n";
+            cout << "  3. Multiplication  4. Quotient\n";
+            cout << "  5. Remainder\n";
             cin >> opr;
             
             cout << "Enter two operands: ";
@@ -704,12 +710,17 @@ int main() {
                     break;
                 default:
                     cout << "Invalid operation!\n";
-                    break;
             }
             break;
         }
         case 2:{
-            cout << "Enter operation: 1 sine    2 cosine    3 tangent   4   cotangent   5 secant    6 cosecant    7 inverse sine    8 inverse cosine    9 inverse tangent   10 inverse cotangent    11 inverse secant   12 inverse cosecant): ";
+            cout << "Enter operation:\n";
+            cout << "  1. Sine                2. Cosine\n";
+            cout << "  3. Tangent             4. Cotangent\n";
+            cout << "  5. Secant              6. Cosecant\n";
+            cout << "  7. Inverse Sine       8. Inverse Cosine\n";
+            cout << "  9. Inverse Tangent   10. Inverse Cotangent\n";
+            cout << "  11. Inverse Secant    12. Inverse Cosecant\n";
             cin >> opr;
             switch (opr) {
                 case 1:
@@ -852,7 +863,6 @@ int main() {
                         result = ob1.addtopoly(ob2);
                         result.display();
                         cout << "Polynomials added successfully.\n";
-                        
                         break;
         
                     case 6:
@@ -874,7 +884,8 @@ int main() {
         
         }
         case 7:{
-            cout<<"Enter operation: 1 Radian to degree     2 Degree to Radian";
+            cout << "Enter operation:\n";
+            cout << "  1. Radian to Degree   2. Degree to Radian\n";
             cin>>opr;
             double degrees, radians;
             switch(opr){
@@ -989,7 +1000,6 @@ int main() {
                     break;
                 default:
                     std::cout << "Invalid operation!\n";
-                    return 1;
             }
         
             cout << "Result: ";
@@ -1105,8 +1115,9 @@ int main() {
                 }
                 default:{
                     cout << "Invalid operation!\n";
-                    return 1;}
+                }
             }
+            break;
         }
         case 11:{
             int choice, num1, num2;
@@ -1140,9 +1151,9 @@ int main() {
         
                 default:
                     std::cout << "Invalid operation!\n";
-                    return 1;
             }
-                }
+            break;
+        }
         case 12:{
             int choice, n, r;
 
@@ -1173,9 +1184,8 @@ int main() {
                     break;
                 default:
                     std::cout << "Invalid choice!\n";
-                    return 1;
             }
-
+            break;
         }
 
         case 13:{
@@ -1224,14 +1234,15 @@ int main() {
                 }
                 default:
                     std::cout << "Invalid operation!\n";
-                    return 1;
             }
-
+            break;
         }
+        case 14:
+            exit(0);
         
         default:
             cout << "Invalid operation!\n";
     }
-
+}while(operation!=14);
     return 0;
 }
