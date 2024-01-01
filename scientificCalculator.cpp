@@ -11,11 +11,15 @@ using namespace std;
 
 // Function to calculate power
 double power(double base, int exponent) {
-    double result = 1.0;
-    for (int i = 0; i < exponent; ++i) {
-        result *= base;
+    if (exponent == 0) {
+        return 1.0;
     }
-    return result;
+    double halfPower = power(base, exponent / 2);
+    if (exponent % 2 == 0) {
+        return halfPower * halfPower;
+    } else {
+        return base * halfPower * halfPower;
+    }
 }
 
 // Function to calculate factorial
